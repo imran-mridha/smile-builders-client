@@ -2,11 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AddService = () => {
+  const handleAddService = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.serviceName.value;
+    const image = form.image.value;
+    const price = form.price.value;
+    const description = form.description.value;
+
+    const service = {
+      name,
+      image,
+      price,
+      description
+    }
+
+    
+
+    console.log(name,image,price,description);
+  }
   return (
     <div className='container mx-auto my-20'>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
         <div className="bg-white border border-yellow-400 rounded shadow-2xl p-7 sm:p-10">
-          <form className="">
+          <form onSubmit={handleAddService} className="">
             <div className="mb-1 sm:mb-2">
               <label
                 className="inline-block mb-1 font-medium"
@@ -55,7 +74,7 @@ const AddService = () => {
               >
                 Service Description
               </label>
-              <textarea name="" id="" cols="30" rows="10" placeholder='Service Description...' className="flex-grow w-full h-32 px-4 py-2 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-yellow-400 focus:outline-yellow-400 focus:shadow-outline"></textarea>
+              <textarea name="description" id="" cols="30" rows="10" placeholder='Service Description...' className="flex-grow w-full h-32 px-4 py-2 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-yellow-400 focus:outline-yellow-400 focus:shadow-outline"></textarea>
             </div>
             <div className="mt-4 mb-2 sm:mb-4">
               <button

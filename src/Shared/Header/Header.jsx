@@ -6,7 +6,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuItems =
     <>
-      <li className='hover:text-yellow-400'> <Link to='/home'>Services</Link> </li>
+      <li className='hover:text-yellow-400'> <Link to='/services'>Services</Link> </li>
       <li> <Link to='/home'>Review</Link> </li>
       <li> <Link to='/addservice'>Add Service</Link> </li>
       <Link to='/login'>
@@ -57,7 +57,7 @@ const Header = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div className="absolute top-0 left-0 w-full">
+              <div className="absolute top-0 left-0 w-full z-50">
                 <div className="p-5 bg-cyan-900 border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>

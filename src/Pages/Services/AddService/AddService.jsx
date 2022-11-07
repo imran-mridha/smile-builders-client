@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddService = () => {
   const handleAddService = (event) => {
@@ -17,7 +18,22 @@ const AddService = () => {
       description
     }
 
-    
+    fetch('http://localhost:5000/services',{
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(service)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.acknowledged){
+        toast.success('Service added Success!!', {autoClose: 500});
+        form.reset()
+      }
+    })
+    .catch(err => console.error(err))
 
     console.log(name,image,price,description);
   }

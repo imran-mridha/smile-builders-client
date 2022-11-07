@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import Service from '../Service/Service';
+import Service from '../../Services/Service/Service';
 
-const Services = () => {
+const HomeServices = () => {
   const [services, setServices] = useState([]);
 
+
   useEffect(() => {
-    fetch('http://localhost:5000/all-services')
+    fetch('http://localhost:5000/services')
       .then(res => res.json())
       .then(data => setServices(data))
       .catch(err => console.log(err))
   }, [])
+
 
   return (
     <div className='mx-4 md:mx-0 my-20'>
@@ -22,4 +24,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default HomeServices;

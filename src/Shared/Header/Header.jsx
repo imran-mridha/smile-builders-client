@@ -35,9 +35,6 @@ const Header = () => {
             <button className='border py-2 px-6 border-yellow-500 hover:bg-yellow-500 rounded hover:text-white duration-200'>Sign In</button>
           </Link>
       }
-
-
-
     </>
 
 

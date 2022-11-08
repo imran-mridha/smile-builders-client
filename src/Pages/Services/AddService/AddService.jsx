@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Lottie from 'lottie-react';
+import reader from '../../../assets/service/service.json';
+
 
 const AddService = () => {
   const handleAddService = (event) => {
@@ -39,8 +41,11 @@ const AddService = () => {
   }
   return (
     <div className='container mx-auto my-20'>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mx-5 md:mx-0'>
         <div className="bg-white border border-yellow-400 rounded shadow-2xl p-7 sm:p-10">
+        <h3 className="mb-4 text-3xl text-gray-600 font-semibold border-b-2 border-yellow-400 w-44 pb-2 sm:mb-6">
+            Add Service
+          </h3>
           <form onSubmit={handleAddService} className="">
             <div className="mb-1 sm:mb-2">
               <label
@@ -102,7 +107,9 @@ const AddService = () => {
             </div>
           </form>
         </div>
-        <div></div>
+        <div>
+        <Lottie animationData={reader} loop={true} />
+        </div>
       </div>
 
     </div>

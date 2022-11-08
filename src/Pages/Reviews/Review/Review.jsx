@@ -3,7 +3,7 @@ import { FaQuoteRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Review = ({ review, handleDeleteReview }) => {
-  const { _id, image, message, name } = review;
+  const { _id, image, message, name,date } = review;
 
 
   return (
@@ -19,6 +19,7 @@ const Review = ({ review, handleDeleteReview }) => {
           <img className='w-16 h-16 rounded-full mr-3' src={image} alt="" />
           <div className='text-gray-600'>
             <p className='text-2xl only:'>{name}</p>
+            <p>{date}</p>
           </div>
         </div>
         <div>

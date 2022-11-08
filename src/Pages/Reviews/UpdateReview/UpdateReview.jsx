@@ -7,9 +7,9 @@ const UpdateReview = () => {
   const preReview = useLoaderData();
   console.log(preReview);
 
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  const handleUpdateRivew =(event)=>{
+  const handleUpdateRivew = (event) => {
     event.preventDefault();
     const form = event.target;
     const message = form.message.value;
@@ -21,19 +21,20 @@ const UpdateReview = () => {
     console.log(message);
 
     fetch(`http://localhost:5000/reviews/${preReview._id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(review)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                  toast.success('Review Update Success!!', {autoClose: 500})
-                }
-            })
-            .catch(err => toast.error(err.message, {autoClose: 500}))
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `Bearer, ${localStorage.getItem('smile-token')}`
+      },
+      body: JSON.stringify(review)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.modifiedCount > 0) {
+          toast.success('Review Update Success!!', { autoClose: 500 })
+        }
+      })
+      .catch(err => toast.error(err.message, { autoClose: 500 }))
   }
 
   return (

@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import googleIcon from '../../assets/social/google.png'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
+import { setAuthToken } from '../../api/auth';
 
 const SocialLogin = () => {
   const {providerLogin} = useContext(AuthContext);
@@ -13,6 +14,7 @@ const SocialLogin = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
+      setAuthToken(user)
       toast.success('Login Success!!', {autoClose: 500})
     })
     .catch(err => console.error(err))

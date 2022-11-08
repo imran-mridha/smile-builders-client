@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
-import {Link} from 'react-router-dom'
+import {Link, useLocation, useNavigate} from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
-import { toast } from 'react-toastify';
+import { setAuthToken } from '../api/auth';
 
 
 const LogIn = () => {
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const {logInUser} = useContext(AuthContext)
   const handleLogin =(e)=>{
 
@@ -17,8 +22,8 @@ const LogIn = () => {
     logInUser(email,password)
     .then(result => {
       const user = result.user;
-      console.log(user);
-      toast.success('Login Success!!', {autoClose: 500})
+      setAuthToken(user)
+       navigate(from, { replace: true });
     })
     .catch(err => console.error(err))
   }

@@ -26,6 +26,7 @@ const AuthProvider = ({children}) => {
   }
 
   const providerLogin = (provider) => {
+    setLoading(true)
     return signInWithPopup(auth, provider)
   }
   useEffect(()=>{
@@ -40,7 +41,8 @@ const AuthProvider = ({children}) => {
   },[])
 
   const logOut = () =>{
-    localStorage.removeItem('genius-token')
+    setLoading(true)
+    localStorage.removeItem('smile-token')
     return signOut(auth)
   }
 

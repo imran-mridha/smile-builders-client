@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const Service = ({ service }) => {
   const { _id, image, name, price, description } = service;
   return (
     <div className='border rounded p-4 shadow-lg'>
-      <img className='h-80 w-full rounded-lg' src={image} alt="" />
+      {/* <img className='h-80 w-full rounded-lg' src={image} alt="" /> */}
+      <PhotoProvider>
+        <PhotoView src={image}>
+        <img className='h-80 w-full rounded-lg' src={image} alt="" />
+        </PhotoView>
+      </PhotoProvider>
       <div className='text-3xl'>
         <p className='my-3 font-semibold text-gray-500'>{name}</p>
         <p className='text-gray-500 font-semibold'>Price: <span className='text-yellow-400'>${price}</span> </p>

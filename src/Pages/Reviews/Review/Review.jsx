@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaQuoteRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Review = ({ review, handleDeleteReview }) => {
   const { _id, image, message, name } = review;
@@ -21,7 +22,7 @@ const Review = ({ review, handleDeleteReview }) => {
           </div>
         </div>
         <div>
-          <button className='border border-yellow-400 hover:bg-yellow-400 py-2 px-4 mr-2 rounded'>Update</button>
+          <Link to={`/update-review/${_id}`}  className='border border-yellow-400 hover:bg-yellow-400 py-2.5 px-4 mr-2 rounded'>Edit</Link>
           <button onClick={() => handleDeleteReview((_id))} className='border border-yellow-400 bg-yellow-400 py-2 px-4 rounded'>Delete</button>
         </div>
       </div>

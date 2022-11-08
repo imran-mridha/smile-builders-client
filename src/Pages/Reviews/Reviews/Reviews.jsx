@@ -5,31 +5,19 @@ import { toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 
 const Reviews = () => {
-  const { user,logOut } = useContext(AuthContext)
+  const { user} = useContext(AuthContext)
   const [reviews, setReviews] = useState([])
+  console.log(reviews);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer, ${localStorage.getItem('smile-token')}`
-      }
-    })
-      .then(res => {
-        console.log(res.stutus);
-        if (res.status === 401 || res.status === 403) {
-           logOut()
-        }
-        return res.json();
-
-      })
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+      .then(res => res.json())
       .then(data => {
         setReviews(data);
       })
       .catch(err => console.error(err))
-  }, [user?.email,logOut])
+  }, [user?.email])
 
   const handleDeleteReview = id => {
-    // const procced = window.confirm('Are you sure, want to Delete this Review?');
-
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",

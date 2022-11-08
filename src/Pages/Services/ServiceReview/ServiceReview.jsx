@@ -2,7 +2,8 @@ import React from 'react';
 import { FaQuoteRight } from "react-icons/fa";
 
 const ServiceReview = ({ review }) => {
-  const { image, message, name,date } = review;
+  console.log(review);
+  const { image, message, name,time } = review;
   return (
     <div className='bg-gray-100 p-5 lg:p-10 mb-5 rounded-lg'>
       <div className='flex flex-col md:flex-row justify-between gap-10'>
@@ -16,7 +17,7 @@ const ServiceReview = ({ review }) => {
           <img className='w-16 h-16 rounded-full mr-3' src={image} alt="" />
           <div className='text-gray-600'>
             <p className='text-2xl only:'>{name}</p>
-            <p>{date}</p>
+            <p>{time}</p>
           </div>
         </div>
       </div>

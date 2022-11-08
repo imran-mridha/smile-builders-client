@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import {Link, useLocation, useNavigate} from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
-import { setAuthToken } from '../api/auth';
+import { toast } from 'react-toastify';
 
 
 const LogIn = () => {
@@ -22,7 +22,8 @@ const LogIn = () => {
     logInUser(email,password)
     .then(result => {
       const user = result.user;
-      setAuthToken(user)
+      console.log(user);
+      toast.success('login Success!!!')
        navigate(from, { replace: true });
     })
     .catch(err => console.error(err))

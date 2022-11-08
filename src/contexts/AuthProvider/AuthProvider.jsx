@@ -42,7 +42,6 @@ const AuthProvider = ({children}) => {
 
   const logOut = () =>{
     setLoading(true)
-    localStorage.removeItem('smile-token')
     return signOut(auth)
   }
 

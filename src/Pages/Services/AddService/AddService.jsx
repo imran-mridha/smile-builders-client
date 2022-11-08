@@ -11,11 +11,13 @@ const AddService = () => {
     const name = form.serviceName.value;
     const image = form.image.value;
     const price = form.price.value;
+    const time = new Date()
     const description = form.description.value;
 
     const service = {
       name,
       image,
+      time,
       price,
       description
     }

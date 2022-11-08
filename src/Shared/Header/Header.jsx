@@ -1,21 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo/logo.png'
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Header = () => {
+  const {logOut} = useContext(AuthContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleLogOut = ()=>{
+    logOut()
+    .then(()=>{
+      toast.success('LogOut Success!!', {autoClose: 500})
+    })
+  }
+
   const menuItems =
     <>
       <li className='hover:text-yellow-400'> <Link to='/services'>Services</Link> </li>
       <li> <Link to='/home'>Review</Link> </li>
       <li> <Link to='/addservice'>Add Service</Link> </li>
+      <li> <Link to='/reviews'>My Reviews</Link> </li>
       <Link to='/login'>
         <button className='border py-2 px-6 border-blue-500 rounded hover:bg-blue-500 hover:text-white duration-200'>Sign In</button>
       </Link>
-      <Link to='admin'>
-        <button className='border py-2 px-6 bg-blue-500 rounded text-white ml-3 lg:ml-0'>Admin</button>
-      </Link>
+        <button onClick={handleLogOut} className='border py-2 px-6 bg-blue-500 rounded text-white ml-3 lg:ml-0'>Log Out</button>
     </>
+
+   
   return (
     <div className='bg-cyan-900'>
       <div className="px-4 md:px-0 py-5 container mx-auto">

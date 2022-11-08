@@ -4,9 +4,11 @@ import HomeServices from '../HomeServices/HomeServices';
 
 const Home = () => {
   return (
-    <div className=''>
+    <div>
       <Hero />
-      <HomeServices />
+      <div className='mx-5 md:mx-0'>
+        <HomeServices />
+      </div>
     </div>
   );
 };

@@ -20,7 +20,7 @@ const Service = ({ service }) => {
       </div>
       <div>
         <Link to={`/services/${_id}`}>
-          <button className='border py-2 px-6 text-gray-600 border-yellow-400 rounded hover:bg-yellow-500 hover:text-white duration-200 w-full uppercase text-xl font-semibold'>View Details</button>
+          <button className='border py-2 px-6  bg-yellow-400 rounded hover:bg-yellow-500 text-white duration-200 w-full uppercase text-xl font-semibold'>View Details</button>
         </Link>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import banner from '../../../assets/banner/Banner.png';
 
 const Hero = () => {
@@ -10,7 +11,9 @@ const Hero = () => {
         <p className='text-xl text-white my-3'>
           This is Your Year to Smile
         </p>
-        <button className='border border-yellow-400 rounded text-xl text-white font-semibold hover:bg-yellow-400 py-2 px-6 '>Get Started</button>
+        <Link to='/services'>
+          <button className='border border-yellow-400 rounded text-xl text-white font-semibold hover:bg-yellow-400 py-2 px-6 '>Get Started</button>
+        </Link>
       </div>
     </div>
   );

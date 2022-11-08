@@ -5,29 +5,42 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Header = () => {
-  const {logOut} = useContext(AuthContext)
+  const { logOut, user } = useContext(AuthContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleLogOut = ()=>{
+  const handleLogOut = () => {
     logOut()
-    .then(()=>{
-      toast.success('LogOut Success!!', {autoClose: 500})
-    })
+      .then(() => {
+        toast.success('LogOut Success!!', { autoClose: 500 })
+      })
   }
 
   const menuItems =
     <>
       <li className='hover:text-yellow-400'> <Link to='/services'>Services</Link> </li>
-      <li> <Link to='/home'>Review</Link> </li>
-      <li> <Link to='/addservice'>Add Service</Link> </li>
-      <li> <Link to='/reviews'>My Reviews</Link> </li>
-      <Link to='/login'>
-        <button className='border py-2 px-6 border-blue-500 rounded hover:bg-blue-500 hover:text-white duration-200'>Sign In</button>
-      </Link>
-        <button onClick={handleLogOut} className='border py-2 px-6 bg-blue-500 rounded text-white ml-3 lg:ml-0'>Log Out</button>
+      <li> <Link to='/blog'>Blog</Link> </li>
+      <li> <Link to='/about'>About</Link> </li>
+      <li> <Link to='/contact'>Contact</Link> </li>
+      {
+        user ?
+          <>
+            <li> <Link to='/addservice'>Add Service</Link> </li>
+            <li> <Link to='/reviews'>My Reviews</Link> </li>
+            <img title={user?.displayName} className='w-12 h-12 rounded-full border p-1' src={user?.photoURL} alt="" />
+            <button onClick={handleLogOut} className='border py-2 px-4 border-yellow-500 hover:bg-yellow-500 duration-200 rounded text-white'>Log Out</button>
+            
+          </>
+          :
+          <Link to='/login'>
+            <button className='border py-2 px-6 border-yellow-500 hover:bg-yellow-500 rounded hover:text-white duration-200'>Sign In</button>
+          </Link>
+      }
+
+
+
     </>
 
-   
+
   return (
     <div className='bg-cyan-900'>
       <div className="px-4 md:px-0 py-5 container mx-auto">
@@ -79,7 +92,7 @@ const Header = () => {
                         title="Company"
                         className="inline-flex items-center"
                       >
-                        
+
                         <span className="text-white text-3xl md:text-start flex">
                           <img className='w-14' src={logo} alt="" />
                           <h2 className="uppercase text-white">Smile <br /> <span className="text-yellow-400 font-extrabold">Builders</span></h2>

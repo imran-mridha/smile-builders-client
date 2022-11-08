@@ -3,6 +3,7 @@ import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import {Link, useLocation, useNavigate} from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
+import { setAuthToken } from '../api/auth';
 
 
 const LogIn = () => {
@@ -23,10 +24,11 @@ const LogIn = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
-      toast.success('login Success!!!')
-       navigate(from, { replace: true });
+      setAuthToken(user)
+      toast.success('login Success!!!', {autoClose: 500})
+      navigate(from, { replace: true });
     })
-    .catch(err => console.error(err))
+    .catch(err => toast.error(err.message, {autoClose: 500}))
   }
   return (
     <div className='flex justify-center my-20'>

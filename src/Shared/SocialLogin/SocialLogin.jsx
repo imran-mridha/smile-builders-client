@@ -3,8 +3,15 @@ import React, { useContext } from 'react';
 import googleIcon from '../../assets/social/google.png'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
+import { setAuthToken } from '../../api/auth';
+import { useLocation, useNavigate} from 'react-router-dom'
 
 const SocialLogin = () => {
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const {providerLogin} = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider()
   const handleGoogleLogin = ()=>{
@@ -13,7 +20,10 @@ const SocialLogin = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
-      toast.success('Login Success!!', {autoClose: 500})
+      setAuthToken(user)
+      toast.success('Login Success!!', {autoClose: 500});
+      navigate(from, { replace: true });
+
     })
     .catch(err => console.error(err))
 

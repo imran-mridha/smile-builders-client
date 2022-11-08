@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const UpdateReview = () => {
+  const navigate = useNavigate()
   const preReview = useLoaderData();
   console.log(preReview);
 
@@ -30,7 +31,8 @@ const UpdateReview = () => {
       .then(res => res.json())
       .then(data => {
         if (data.modifiedCount > 0) {
-          toast.success('Review Update Success!!', { autoClose: 500 })
+          toast.success('Review Update Success!!', { autoClose: 500 });
+          navigate('/reviews')
         }
       })
       .catch(err => toast.error(err.message, { autoClose: 500 }))

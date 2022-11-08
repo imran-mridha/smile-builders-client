@@ -13,10 +13,12 @@ const AddReview = ({service}) => {
     const time = new Date()
     const image = user?.photoURL;
     const message = form.message.value;
+    const serviceName = form.serviceName.value;
 
     const review = {
       serviceId: _id,
       name,
+      serviceName,
       image,
       time,
       email: user?.email,
@@ -60,10 +62,21 @@ const AddReview = ({service}) => {
           <div className="mb-1 sm:mb-2">
             <input
               required
+              readOnly
               type="email"
               defaultValue={user?.email}
               className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-yellow-400 focus:outline-yellow-400 focus:shadow-outline"
               name="email"
+            />
+          </div>
+          <div className="mb-1 sm:mb-2">
+            <input
+              required
+              readOnly
+              type="text"
+              defaultValue={service?.name}
+              className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-yellow-400 focus:outline-yellow-400 focus:shadow-outline"
+              name="serviceName"
             />
           </div>
         </div>

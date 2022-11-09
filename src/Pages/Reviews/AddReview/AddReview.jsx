@@ -1,12 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
-import { FaRegStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 
-const AddReview = ({service}) => {
-  const { _id} = service;
-  const {user} = useContext(AuthContext)
+const colors = {
+  orange: "#FFBA5A",
+  grey: "#a9a9a9"
+
+};
+
+
+const AddReview = ({ service }) => {
+
+  const [rating, setRating] = useState(0);
+  const [hoverValue, setHoverValue] = useState(undefined);
+  const stars = Array(5).fill(0)
+
+  console.log(rating);
+
+  const handleClick = value => {
+    setRating(value)
+  }
+
+  const handleMouseOver = newHoverValue => {
+    setHoverValue(newHoverValue)
+  };
+
+  const handleMouseLeave = () => {
+    setHoverValue(undefined)
+  }
+
+  const { _id } = service;
+  const { user } = useContext(AuthContext)
 
   const handleAddRivew = (event) => {
     event.preventDefault();
@@ -23,6 +49,7 @@ const AddReview = ({service}) => {
       serviceName,
       image,
       time,
+      rating,
       email: user?.email,
       message
     }
@@ -82,11 +109,34 @@ const AddReview = ({service}) => {
           </div>
         </div>
         <div className="mb-1 sm:mb-2 flex gap-3">
+          {/* <FaRegStar />
           <FaRegStar />
           <FaRegStar />
           <FaRegStar />
-          <FaRegStar />
-          <FaRegStar />
+          <FaRegStar /> */}
+          <div style={styles.container}>
+            <h2> React Ratings </h2>
+            <div style={styles.stars}>
+              {stars.map((_, index) => {
+                return (
+                  <FaStar
+                    key={index}
+                    size={24}
+                    onClick={() => handleClick(index + 1)}
+                    onMouseOver={() => handleMouseOver(index + 1)}
+                    onMouseLeave={handleMouseLeave}
+                    color={(hoverValue || rating) > index ? colors.orange : colors.grey}
+                    style={{
+                      marginRight: 10,
+                      cursor: "pointer"
+                    }}
+                  />
+                )
+              })}
+            </div>
+
+
+          </div>
         </div>
         <div className="mb-1 sm:mb-2">
           <textarea name="message" id="" cols="30" rows="10" placeholder='Your Review...' className="flex-grow w-full h-40 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-yellow-400 focus:outline-yellow-400 focus:shadow-outline pt-3"></textarea>
@@ -102,6 +152,18 @@ const AddReview = ({service}) => {
       </form>
     </div>
   );
+};
+
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    // alignItems: "center"
+  },
+  stars: {
+    display: "flex",
+    flexDirection: "row",
+  }
 };
 
 export default AddReview;

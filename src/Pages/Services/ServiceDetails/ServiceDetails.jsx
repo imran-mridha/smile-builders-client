@@ -18,7 +18,7 @@ const ServiceDetails = () => {
     fetch(`https://smile-builders-server.vercel.app/reviewsid?serviceId=${_id}`)
       .then(res => res.json())
       .then(data => setReviews(data))
-  }, [ _id])
+  }, [_id])
 
   return (
     <div className='mx-5 md:mx-0'>
@@ -33,7 +33,7 @@ const ServiceDetails = () => {
             <p className='mt-5'>{description}</p>
           </div>
           <div>
-        </div>
+          </div>
           <div className='mt-10'>
             {
               user?.uid ? <AddReview service={service}></AddReview>
@@ -47,18 +47,25 @@ const ServiceDetails = () => {
                 </div>
             }
           </div>
-          
+
           <div className='my-10'>
-            <h2 className='text-4xl text-gray-600'>Reviews</h2>
-            <div className='mt-10'>
-              {
-                reviews?.map(review => <ServiceReview key={review._id} review={review} />)
-              }
-            </div>
+            {
+              reviews?.length !== 0 ?
+                <>
+                  <h2 className='text-4xl text-gray-600'>Reviews</h2>
+                  <div className='mt-10'>
+                    {
+                      reviews?.map(review => <ServiceReview key={review._id} review={review} />)
+                    }
+                  </div>
+                </>
+                :
+                <p className='text-4xl text-gray-600 text-center'>No Review Available</p>
+            }
           </div>
-          
+
         </div>
-        
+
       </div>
     </div>
   );

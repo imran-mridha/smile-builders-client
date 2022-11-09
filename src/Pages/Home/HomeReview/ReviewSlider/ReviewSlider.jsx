@@ -2,7 +2,7 @@ import React from 'react';
 import { FaQuoteRight,FaStar } from "react-icons/fa";
 
 const ReviewSlider = ({reviewSlide}) => {
-  const {image,name,message} = reviewSlide;
+  const {image,name,message,rating} = reviewSlide;
   return (
     <div className='p-5 border rounded-lg'>
       <div className='flex justify-between'>
@@ -22,13 +22,11 @@ const ReviewSlider = ({reviewSlide}) => {
         <p>
           {message}
         </p>
-        <p className='flex mt-5 text-[#FF912C]'>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-        </p>
+        <div className='flex items-center mt-5'>
+          <p className='mr-3 text-gray-600'>Rating: </p>
+          <p className='text-xl mr-1 font-bold text-yellow-400'>{rating}</p>
+          <FaStar className='text-xl font-bold text-yellow-400' />
+      </div>
       </div>
     </div>
   );

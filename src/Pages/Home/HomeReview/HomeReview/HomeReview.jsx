@@ -13,8 +13,6 @@ import ReviewSlider from '../ReviewSlider/ReviewSlider';
 const HomeReview = () => {
   const [reviews, setReviews] = useState([]);
 
-  console.log(reviews);
-
   useEffect(() => {
     fetch('https://smile-builders-server.vercel.app/reviews')
       .then(res => res.json())

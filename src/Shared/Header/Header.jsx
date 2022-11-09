@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import logo from '../../assets/logo/logo.png'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
@@ -17,24 +17,25 @@ const Header = () => {
 
   const menuItems =
     <>
-      <li> <Link to='/home'>Home</Link> </li>
-      <li className='hover:text-yellow-400'> <Link to='/services'>Services</Link> </li>
-      <li> <Link to='/blog'>Blog</Link> </li>
-      <li> <Link to='/contact'>Contact</Link> </li>
+      <li> <NavLink className={({isActive}) => isActive ? `text-yellow-400`: `hover:text-yellow-400`} to='/home'>Home</NavLink> </li>
+      <li> <NavLink className={({isActive}) => isActive ? `text-yellow-400`: `hover:text-yellow-400`} to='/services'>Services</NavLink> </li>
+      <li> <NavLink className={({isActive}) => isActive ? `text-yellow-400`: `hover:text-yellow-400`} to='/blog'>Blog</NavLink> </li>
+      <li> <NavLink className={({isActive}) => isActive ? `text-yellow-400`: `hover:text-yellow-400`} to='/contact'>Contact</NavLink> </li>
       {
         user ?
           <>
-            <li> <Link to='/addservice'>Add Service</Link> </li>
-            <li> <Link to='/reviews'>My Reviews</Link> </li>
+            <li> <NavLink className={({isActive}) => isActive ? `text-yellow-400`: `hover:text-yellow-400`} to='/addservice'>Add Service</NavLink> </li>
+            <li> <NavLink className={({isActive}) => isActive ? `text-yellow-400`: `hover:text-yellow-400`} to='/reviews'>My Reviews</NavLink> </li>
             <img title={user?.displayName} className='w-12 h-12 rounded-full border p-1' src={user?.photoURL} alt="" />
             <button onClick={handleLogOut} className='border py-2 px-4 border-yellow-500 hover:bg-yellow-500 duration-200 rounded text-white'>Log Out</button>
 
           </>
           :
           <Link to='/login'>
-            <button className='border py-2 px-6 border-yellow-500 hover:bg-yellow-500 rounded hover:text-white duration-200'>Sign In</button>
+            <button className='border py-2 px-6 border-yellow-500 bg-yellow-500 rounded hover:text-white duration-200'>Sign In</button>
           </Link>
       }
+      
     </>
 
 

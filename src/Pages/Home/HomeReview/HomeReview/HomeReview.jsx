@@ -14,9 +14,11 @@ const HomeReview = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch('https://smile-builders-server.vercel.app/reviews')
+    fetch('https://smile-builders-server.vercel.app/all-reviews')
       .then(res => res.json())
-      .then(data => setReviews(data))
+      .then(data => {
+        setReviews(data)
+      })
   }, [])
   return (
     <div className='container mx-auto'>

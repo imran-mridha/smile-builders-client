@@ -3,6 +3,7 @@ import useTitle from '../../../hooks/useTitle';
 import Service from '../Service/Service';
 import ServiceSlider from '../ServiceSlider/ServiceSlider/ServiceSlider';
 import { CirclesWithBar } from  'react-loader-spinner'
+import HomeReview from '../../Home/HomeReview/HomeReview/HomeReview';
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Services = () => {
@@ -19,6 +20,9 @@ const Services = () => {
 
   return (
     <div className='mx-4 md:mx-0 my-20'>
+      <div className='mb-20'>
+        <ServiceSlider />
+      </div>
       <div className='mb-10 text-center'>
         <h2 className='text-4xl uppercase font-semibold text-gray-600'>Services</h2>
         <hr className='w-1/12 mx-auto mt-3 border-2 border-yellow-400' />
@@ -47,9 +51,10 @@ const Services = () => {
             
         }
       </div>
-      <div className='w-8/12 mx-auto'>
-        <ServiceSlider />
+      <div className='mt-20'>
+        <HomeReview /> 
       </div>
+      
     </div>
   );
 };

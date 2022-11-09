@@ -18,7 +18,7 @@ const ServiceDetails = () => {
     fetch(`https://smile-builders-server.vercel.app/reviewsid?serviceId=${_id}`)
       .then(res => res.json())
       .then(data => setReviews(data))
-  }, [reviews, _id])
+  }, [ _id])
 
   return (
     <div className='mx-5 md:mx-0'>

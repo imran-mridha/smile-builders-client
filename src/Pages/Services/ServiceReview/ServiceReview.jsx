@@ -1,9 +1,15 @@
 import React from 'react';
 import { FaQuoteRight } from "react-icons/fa";
+import { formatDistanceToNow } from 'date-fns'
 
 const ServiceReview = ({ review }) => {
   console.log(review);
   const { image, message, name, time, serviceName } = review;
+
+  const reviewTime = formatDistanceToNow(
+    new Date(time),
+    {includeSeconds: true}
+  )
 
   return (
     <div className='bg-gray-100 p-5 lg:p-10 mb-5 rounded-lg'>
@@ -19,7 +25,7 @@ const ServiceReview = ({ review }) => {
           <img className='w-16 h-16 rounded-full mr-3' src={image} alt="" />
           <div className='text-gray-600'>
             <p className='text-2xl only:'>{name}</p>
-            <p>{time}</p>
+            <p>{reviewTime}</p>
           </div>
         </div>
       </div>

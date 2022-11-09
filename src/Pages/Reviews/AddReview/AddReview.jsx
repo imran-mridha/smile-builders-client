@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
+import { FaRegStar } from "react-icons/fa";
+
 
 const AddReview = ({service}) => {
   const { _id} = service;
@@ -29,7 +31,6 @@ const AddReview = ({service}) => {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        // authorization: `Bearer, ${localStorage.getItem('smile-token')}`
       },
       body: JSON.stringify(review)
     })
@@ -79,6 +80,13 @@ const AddReview = ({service}) => {
               name="serviceName"
             />
           </div>
+        </div>
+        <div className="mb-1 sm:mb-2 flex gap-3">
+          <FaRegStar />
+          <FaRegStar />
+          <FaRegStar />
+          <FaRegStar />
+          <FaRegStar />
         </div>
         <div className="mb-1 sm:mb-2">
           <textarea name="message" id="" cols="30" rows="10" placeholder='Your Review...' className="flex-grow w-full h-40 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-yellow-400 focus:outline-yellow-400 focus:shadow-outline pt-3"></textarea>

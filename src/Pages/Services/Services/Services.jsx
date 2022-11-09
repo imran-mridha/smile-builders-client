@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import useTitle from '../../../hooks/useTitle';
 import Service from '../Service/Service';
+import ServiceSlider from '../ServiceSlider/ServiceSlider/ServiceSlider';
+import { CirclesWithBar } from  'react-loader-spinner'
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -8,7 +11,7 @@ const Services = () => {
   useTitle('Services')
 
   useEffect(() => {
-    fetch('http://localhost:5000/all-services')
+    fetch('https://smile-builders-server.vercel.app/all-services')
       .then(res => res.json())
       .then(data => setServices(data))
       .catch(err => console.log(err))
@@ -27,9 +30,25 @@ const Services = () => {
             services.map(service => <Service key={service._id} service={service} />)
             :
             <div className='flex justify-center col-span-3 items-center'>
-              <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-yellow-400"></div>
+              {/* <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-yellow-400"></div> */}
+              <CirclesWithBar
+              height="100"
+              width="100"
+              color="#E6BE05"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              outerCircleColor=""
+              innerCircleColor=""
+              barColor=""
+              ariaLabel='circles-with-bar-loading'
+            />
             </div>
+            
         }
+      </div>
+      <div className='w-8/12 mx-auto'>
+        <ServiceSlider />
       </div>
     </div>
   );

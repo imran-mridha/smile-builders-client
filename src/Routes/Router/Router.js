@@ -1,6 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main/Main";
 import Blog from "../../Pages/Blog/Blog";
+import BlogJvN from "../../Pages/Blog/BlogJvN";
+import BlogJwt from "../../Pages/Blog/BlogJwt";
+import BlogNode from "../../Pages/Blog/BlogNode";
+import BlogSql from "../../Pages/Blog/BlogSql";
 import Contact from "../../Pages/Contact/Contact";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
@@ -37,12 +41,28 @@ export const router = createBrowserRouter([
         element: <Blog />
       },
       {
+        path: '/BlogSql',
+        element: <BlogSql />
+      },
+      {
+        path: '/BlogJwt',
+        element: <BlogJwt />
+      },
+      {
+        path: '/BlogJvN',
+        element: <BlogJvN />
+      },
+      {
+        path: '/BlogNode',
+        element: <BlogNode />
+      },
+      {
         path: '/contact',
         element: <Contact />
       },
       {
         path: '/services/:id',
-        loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`),
+        loader: ({params})=> fetch(`https://smile-builders-server.vercel.app/services/${params.id}`),
         element: <ServiceDetails />
       },
       {
@@ -55,7 +75,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/update-review/:id',
-        loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`),
+        loader: ({params})=> fetch(`https://smile-builders-server.vercel.app/reviews/${params.id}`),
         element: <PrivateRoute><UpdateReview /></PrivateRoute>
       },
       {

@@ -21,7 +21,7 @@ const UpdateReview = () => {
 
     console.log(message);
 
-    fetch(`http://localhost:5000/reviews/${preReview._id}`, {
+    fetch(`https://smile-builders-server.vercel.app/reviews/${preReview._id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'

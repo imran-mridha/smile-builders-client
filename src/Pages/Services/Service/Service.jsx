@@ -10,7 +10,7 @@ const Service = ({ service }) => {
       {/* <img className='h-80 w-full rounded-lg' src={image} alt="" /> */}
       <PhotoProvider>
         <PhotoView src={image}>
-        <img className='h-80 w-full rounded-lg' src={image} alt="" />
+        <img className='h-60 w-full rounded-lg' src={image} alt="" />
         </PhotoView>
       </PhotoProvider>
       <div className='text-3xl'>

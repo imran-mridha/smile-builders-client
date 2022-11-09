@@ -12,7 +12,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([])
   console.log(reviews);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+    fetch(`https://smile-builders-server.vercel.app/reviews?email=${user?.email}`, {
       headers: {
         authorization: `Bearer, ${localStorage.getItem('smile-token')}`
       }
@@ -47,7 +47,7 @@ const Reviews = () => {
           'Your file has been deleted.',
           'success'
         )
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://smile-builders-server.vercel.app/reviews/${id}`, {
           method: 'DELETE',
           headers: {
             authorization: `Bearer, ${localStorage.getItem('smile-token')}`

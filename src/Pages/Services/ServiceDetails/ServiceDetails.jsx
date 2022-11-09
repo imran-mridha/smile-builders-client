@@ -15,7 +15,7 @@ const ServiceDetails = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviewsid?serviceId=${_id}`)
+    fetch(`https://smile-builders-server.vercel.app/reviewsid?serviceId=${_id}`)
       .then(res => res.json())
       .then(data => setReviews(data))
   }, [reviews, _id])
@@ -29,9 +29,11 @@ const ServiceDetails = () => {
               <p className='text-4xl'>{name}</p>
               <p className='text-3xl'>Price: ${price}</p>
             </div>
-            <img className='rounded-lg w-full' src={image} alt="" />
+            <img className='rounded-lg w-full h-96 object-cover' src={image} alt="" />
             <p className='mt-5'>{description}</p>
           </div>
+          <div>
+        </div>
           <div className='mt-10'>
             {
               user?.uid ? <AddReview service={service}></AddReview>
@@ -45,6 +47,7 @@ const ServiceDetails = () => {
                 </div>
             }
           </div>
+          
           <div className='my-10'>
             <h2 className='text-4xl text-gray-600'>Reviews</h2>
             <div className='mt-10'>
@@ -53,7 +56,9 @@ const ServiceDetails = () => {
               }
             </div>
           </div>
+          
         </div>
+        
       </div>
     </div>
   );

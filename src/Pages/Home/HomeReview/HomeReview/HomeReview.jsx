@@ -16,7 +16,7 @@ const HomeReview = () => {
   console.log(reviews);
 
   useEffect(() => {
-    fetch('http://localhost:5000/reviews')
+    fetch('https://smile-builders-server.vercel.app/reviews')
       .then(res => res.json())
       .then(data => setReviews(data))
   }, [])
@@ -35,6 +35,20 @@ const HomeReview = () => {
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
+          }}
+          breakpoints={{
+            280: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
           }}
           navigation={true}
           modules={[Autoplay, Navigation]}

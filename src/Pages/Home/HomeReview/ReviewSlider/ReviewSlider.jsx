@@ -12,11 +12,9 @@ const ReviewSlider = ({reviewSlide}) => {
           </div>
           <div>
             <p className='text-xl font-bold text-gray-500'>{name}</p>
-            {/* <p className='text-theme-text'>Buisnessman</p> */}
           </div>
         </div>
         <div className='text-3xl text-yellow-400'>
-          {/* <img src={quote} alt="" /> */}
           <FaQuoteRight></FaQuoteRight>
         </div>
       </div>

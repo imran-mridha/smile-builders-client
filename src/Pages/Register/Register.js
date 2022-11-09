@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
+  useTitle('Register')
   const {createUser,updateUserProfile,setLoading} = useContext(AuthContext)
   const handleRegister =(e)=>{
 

@@ -2,9 +2,11 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import Lottie from 'lottie-react';
 import reader from '../../../assets/service/service.json';
+import useTitle from '../../../hooks/useTitle';
 
 
 const AddService = () => {
+  useTitle('Add Service')
   const handleAddService = (event) => {
     event.preventDefault();
     const form = event.target;

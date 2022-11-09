@@ -17,9 +17,9 @@ const Header = () => {
 
   const menuItems =
     <>
+      <li> <Link to='/home'>Home</Link> </li>
       <li className='hover:text-yellow-400'> <Link to='/services'>Services</Link> </li>
       <li> <Link to='/blog'>Blog</Link> </li>
-      <li> <Link to='/about'>About</Link> </li>
       <li> <Link to='/contact'>Contact</Link> </li>
       {
         user ?
@@ -28,7 +28,7 @@ const Header = () => {
             <li> <Link to='/reviews'>My Reviews</Link> </li>
             <img title={user?.displayName} className='w-12 h-12 rounded-full border p-1' src={user?.photoURL} alt="" />
             <button onClick={handleLogOut} className='border py-2 px-4 border-yellow-500 hover:bg-yellow-500 duration-200 rounded text-white'>Log Out</button>
-            
+
           </>
           :
           <Link to='/login'>

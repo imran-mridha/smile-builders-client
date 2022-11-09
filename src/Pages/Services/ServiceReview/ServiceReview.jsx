@@ -3,7 +3,8 @@ import { FaQuoteRight } from "react-icons/fa";
 
 const ServiceReview = ({ review }) => {
   console.log(review);
-  const { image, message, name,time,serviceName } = review;
+  const { image, message, name, time, serviceName } = review;
+
   return (
     <div className='bg-gray-100 p-5 lg:p-10 mb-5 rounded-lg'>
       <h2 className='text-2xl mb-3'>{serviceName}</h2>

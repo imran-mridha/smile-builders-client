@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
-import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import {Link, useLocation, useNavigate} from 'react-router-dom'
-import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
+
 import { toast } from 'react-toastify';
-import { setAuthToken } from '../api/auth';
+import { setAuthToken } from '../../api/auth';
+import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 const LogIn = () => {
-
+  useTitle('Login')
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";

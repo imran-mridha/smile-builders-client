@@ -10,7 +10,7 @@ const AddReview = ({service}) => {
     event.preventDefault();
     const form = event.target;
     const name = user?.displayName;
-    const time = new Date()
+    const time = new Date();
     const image = user?.photoURL;
     const message = form.message.value;
     const serviceName = form.serviceName.value;

@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
 import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
-  useTitle('Register')
+  useTitle('Register');
+  const navigate = useNavigate()
   const {createUser,updateUserProfile,setLoading} = useContext(AuthContext)
   const handleRegister =(e)=>{
 
@@ -22,7 +23,8 @@ const Register = () => {
       const user = result.user;
       console.log(user);
       toast.success('Registration Success!!', {autoClose: 500});
-      handleUpdateUserProfile(fullName, photoURL)
+      handleUpdateUserProfile(fullName, photoURL);
+      navigate('/login')
     })
     .catch(err => console.error(err))
   }

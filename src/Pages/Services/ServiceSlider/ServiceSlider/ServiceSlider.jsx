@@ -14,7 +14,6 @@ import Slide from '../Slide/Slide';
 const ServiceSlider = () => {
   const [services, setServices] = useState([]);
 
-  console.log(services);
 
   useEffect(() => {
     fetch('https://smile-builders-server.vercel.app/services')

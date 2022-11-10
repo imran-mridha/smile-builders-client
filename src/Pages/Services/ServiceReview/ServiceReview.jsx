@@ -3,7 +3,6 @@ import { FaQuoteRight, FaStar } from "react-icons/fa";
 import { formatDistanceToNow } from 'date-fns'
 
 const ServiceReview = ({ review }) => {
-  console.log(review);
   const { image, message, name, time, serviceName, rating } = review;
 
   const reviewTime = formatDistanceToNow(

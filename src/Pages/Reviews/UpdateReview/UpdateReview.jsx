@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 const UpdateReview = () => {
   const navigate = useNavigate()
   const preReview = useLoaderData();
-  console.log(preReview);
 
   const { user } = useContext(AuthContext);
 

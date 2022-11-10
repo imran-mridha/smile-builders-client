@@ -12,7 +12,6 @@ const Reviews = () => {
   const { user, logOut } = useContext(AuthContext)
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true)
-  console.log(reviews);
   useEffect(() => {
     if (!user?.email) {
       return;

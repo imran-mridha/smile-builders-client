@@ -6,12 +6,22 @@ import reportWebVitals from './reportWebVitals';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import ScrollToTop from "react-scroll-to-top";
+import { FaArrowUp } from 'react-icons/fa';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ToastContainer position='top-right' />
-    <AuthProvider><App /></AuthProvider>
+
+    <ScrollToTop
+      smooth
+      component={<FaArrowUp className='mx-auto text-gray-600 text-xl'></FaArrowUp>}
+    />
+    <AuthProvider>
+      <ToastContainer position='top-right' />
+      <App />
+    </AuthProvider>
   </React.StrictMode>
 );
 

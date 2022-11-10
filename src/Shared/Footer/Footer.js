@@ -11,7 +11,7 @@ const Footer = () => {
               <img className='w-16' src={logo} alt="" />
               <h2 className="uppercase">Smile <span className="text-yellow-400 font-extrabold">Builders</span></h2>
             </div>
-            <p className="text-center md:text-start">Get access to compact lessons from the experts and connect with a community of native speakers to help you master words faster.</p>
+            <p className="text-center md:text-start">There’s no substitute for compassion, no shortcut when it comes to sincerity.</p>
           </div>
 
           <div className="mb-6">

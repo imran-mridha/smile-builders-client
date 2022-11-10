@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaQuoteRight,FaStar } from "react-icons/fa";
+import './ReviewSlider.css'
 
 const ReviewSlider = ({reviewSlide}) => {
   const {image,name,message,rating} = reviewSlide;

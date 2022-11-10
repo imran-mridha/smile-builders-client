@@ -56,11 +56,11 @@ const UpdateReview = () => {
           <div className="mb-1 sm:mb-2">
             <input
               required
-              type="text"
+              type="email"
               readOnly
-              defaultValue={user?.photoURL}
+              defaultValue={user?.email}
               className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-yellow-400 focus:outline-yellow-400 focus:shadow-outline"
-              name="photoURL"
+              name="email"
             />
           </div>
         </div>

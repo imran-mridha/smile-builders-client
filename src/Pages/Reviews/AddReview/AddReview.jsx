@@ -109,14 +109,9 @@ const AddReview = ({ service }) => {
           </div>
         </div>
         <div className="mb-1 sm:mb-2 flex gap-3">
-          {/* <FaRegStar />
-          <FaRegStar />
-          <FaRegStar />
-          <FaRegStar />
-          <FaRegStar /> */}
           <div style={styles.container}>
-            <h2> React Ratings </h2>
-            <div style={styles.stars}>
+            <h2 className='text-xl'> Feel Free Add Ratings </h2>
+            <div className='my-3' style={styles.stars}>
               {stars.map((_, index) => {
                 return (
                   <FaStar

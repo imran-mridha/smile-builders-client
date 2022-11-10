@@ -18,7 +18,13 @@ const ServiceDetails = () => {
     fetch(`https://smile-builders-server.vercel.app/reviewsid?serviceId=${_id}`)
       .then(res => res.json())
       .then(data => setReviews(data))
-  }, [_id,reviews])
+  }, [_id])
+
+  const handleShowReview = (id) => {
+    fetch(`https://smile-builders-server.vercel.app/reviewsid?serviceId=${_id}`)
+      .then(res => res.json())
+      .then(data => setReviews(data))
+  }
 
   return (
     <div className='mx-5 md:mx-0'>
@@ -36,7 +42,7 @@ const ServiceDetails = () => {
           </div>
           <div className='mt-10'>
             {
-              user?.uid ? <AddReview service={service}></AddReview>
+              user?.uid ? <AddReview service={service} handleShowReview={handleShowReview}></AddReview>
                 :
                 <div className='text-center'>
                   <p className='text-3xl uppercase'>Please Sign In first for providing review

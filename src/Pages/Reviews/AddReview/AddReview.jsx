@@ -11,7 +11,7 @@ const colors = {
 };
 
 
-const AddReview = ({ service }) => {
+const AddReview = ({ service,handleShowReview }) => {
 
   const [rating, setRating] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
@@ -65,6 +65,7 @@ const AddReview = ({ service }) => {
       .then(data => {
         console.log(data);
         if (data.acknowledged) {
+          handleShowReview(_id)
           toast.success('Review Submit Success!!', { autoClose: 500 });
           form.reset();
         }

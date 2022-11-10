@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import googleIcon from '../../assets/social/google.png'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
-import { setAuthToken } from '../../api/auth';
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const SocialLogin = () => {

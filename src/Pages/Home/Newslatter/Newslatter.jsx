@@ -2,7 +2,7 @@ import React from 'react';
 
 const Newslatter = () => {
   return (
-    <div className='container mx-auto my-20'>
+    <div data-aos="zoom-in" className='container mx-auto my-20'>
       <div className='lg:w-9/12 h-60 rounded-lg mx-auto bg-yellow-300 flex flex-col  justify-center p-4'>
         <h2 className='text-center text-xl md:text-3xl uppercase font-semibold text-gray-700 pb-5'>Wanna know upcomming updates?</h2>
         <form className='text-center'>

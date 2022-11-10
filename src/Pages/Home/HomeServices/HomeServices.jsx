@@ -21,7 +21,7 @@ const HomeServices = () => {
         <hr className='w-1/6 mx-auto mt-3 border-2 border-yellow-400' />
         <p className='lg:w-4/12 mx-auto mt-5 text-gray-500'>SmileBuilders is equipped to handle all your dental needs, from a regular cleaning to a full-mouth reconstruction.</p>
       </div>
-      <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+      <div data-aos="zoom-in" className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
         {
           services.map(service => <Service key={service._id} service={service} />)
         }

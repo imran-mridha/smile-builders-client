@@ -10,9 +10,9 @@ const Contact = () => {
       <h2 className="text-4xl font-semibold text-center mt-10 lg:my-10 leading-tight lg:text-5xl text-gray-600">Let's <span className='font-semibold text-yellow-500'>talk!</span> </h2>
       <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16  text-gray-100">
         <div className="">
-          <div className="">
-          </div>
+          <div data-aos="fade-right" className="">
           <Lottie animationData={reader} loop={true} />
+          </div>
         </div>
         <div className="bg-white border border-yellow-400 rounded shadow-2xl p-7 sm:p-10">
           <h3 className="mb-4 text-3xl text-gray-600 font-semibold border-b-2 border-yellow-400 w-28 pb-2 sm:mb-6">

@@ -1,11 +1,13 @@
 import React from 'react';
-import { toast } from 'react-toastify';
 import Lottie from 'lottie-react';
 import reader from '../../../assets/service/service.json';
 import useTitle from '../../../hooks/useTitle';
+import Swal from 'sweetalert2';
+import {useNavigate} from 'react-router-dom'
 
 
 const AddService = () => {
+  const navigate = useNavigate()
   useTitle('Add Service')
   const handleAddService = (event) => {
     event.preventDefault();
@@ -35,8 +37,15 @@ const AddService = () => {
     .then(data => {
       console.log(data);
       if(data.acknowledged){
-        toast.success('Service added Success!!', {autoClose: 500});
-        form.reset()
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Service Added Success',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        form.reset();
+        navigate('/')
       }
     })
     .catch(err => console.error(err))
@@ -74,7 +83,7 @@ const AddService = () => {
               <input
                 placeholder="Service Image URL"
                 required
-                type="text"
+                type="url"
                 className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-yellow-400 focus:outline-yellow-400 focus:shadow-outline"
                 name="image"
               />
@@ -111,7 +120,7 @@ const AddService = () => {
             </div>
           </form>
         </div>
-        <div>
+        <div data-aos="fade-left">
         <Lottie animationData={reader} loop={true} />
         </div>
       </div>

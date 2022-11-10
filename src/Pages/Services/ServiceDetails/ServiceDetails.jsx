@@ -52,7 +52,7 @@ const ServiceDetails = () => {
             {
               reviews?.length !== 0 ?
                 <>
-                  <h2 className='text-4xl text-gray-600'>Reviews</h2>
+                  <h2 className='text-2xl text-gray-600'>Total Customer Review ({reviews.length})</h2>
                   <div className='mt-10'>
                     {
                       reviews?.map(review => <ServiceReview key={review._id} review={review} />)

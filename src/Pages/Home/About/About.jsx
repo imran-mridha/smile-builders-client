@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className='container mx-auto my-20'>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-        <div>
+        <div data-aos="fade-right">
           <img className='h-96 w-full rounded-lg' src={doctor} alt="" />
         </div>
         <div>

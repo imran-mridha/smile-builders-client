@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
 import useTitle from '../../hooks/useTitle';
+import { setAuthToken } from '../../api/auth';
 
 const Register = () => {
   useTitle('Register');
@@ -22,6 +23,7 @@ const Register = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
+      setAuthToken(user)
       toast.success('Registration Success!!', {autoClose: 500});
       handleUpdateUserProfile(fullName, photoURL);
       navigate('/login')

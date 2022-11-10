@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container px-6 pt-6 w-11/12 mx-auto">
         <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-2">
           <div className="mb-6">
-            <div className="text-white text-3xl text-center md:text-start flex">
+            <div className="text-white text-3xl md:text-start flex items-center justify-center mb-3">
               <img className='w-16' src={logo} alt="" />
               <h2 className="uppercase">Smile <span className="text-yellow-400 font-extrabold">Builders</span></h2>
             </div>
@@ -27,10 +27,6 @@ const Footer = () => {
                 <a href="#!" className="text-white"> Chinese</a> |
                 <a href="#!" className="text-white"> German</a>
               </li>
-              {/* <li>
-              <a href="#!" className="text-white">Chinese</a> |
-              <a href="#!" className="text-white"> German</a>
-            </li> */}
             </ul>
           </div>
 
@@ -90,7 +86,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center md:justify-between mb-6 border-t pt-10">
           <div className="">
             <a href="https://www.facebook.com/mdev.imran/" target="_blank" type="button"
-              className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-cyan-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+              className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-yellow-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
               <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                 className="w-2 h-full mx-auto" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                 <path fill="currentColor"
@@ -99,7 +95,7 @@ const Footer = () => {
               </svg>
             </a>
             <a href="https://www.instagram.com/imran.web_developer/" target="_blank" type="button"
-              className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-cyan-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+              className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-yellow-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
               <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" className="w-3 h-full mx-auto"
                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path fill="currentColor"
@@ -109,7 +105,7 @@ const Footer = () => {
             </a>
 
             <a href="https://www.linkedin.com/in/md-imran-mridha-a4487a23b/" target="_blank" type="button"
-              className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-cyan-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+              className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-yellow-600 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
               <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in"
                 className="w-3 h-full mx-auto" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path fill="currentColor"
@@ -119,7 +115,7 @@ const Footer = () => {
             </a>
 
             <a href="https://github.com/imran-mridha" target="_blank" type="button"
-              className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-cyan-600  focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+              className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-yellow-600  focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
               <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" className="w-3 h-full mx-auto"
                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                 <path fill="currentColor"
@@ -133,13 +129,13 @@ const Footer = () => {
               <div className="flex justify-between items-center">
                 <div className="mb-6">
                   <input type="text" className="form-control w-11/12 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition  ease-in-out m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                    focus:text-gray-700 focus:bg-white focus:border-yellow-600 focus:outline-none "
                     id="exampleFormControlInput1" placeholder="Email address" />
                 </div>
 
                 <div className=" mb-6">
                   <button type="button"
-                    className="inline-block px-6 py-2.5 border-2 border-cyan-500 text-white font-medium text-xs leading-tight uppercase rounded  hover:bg-cyan-600  focus:bg-cyan-700  transition duration-150 ease-in-out">Subscribe</button>
+                    className="inline-block px-6 py-2.5 border-2 border-yellow-500 text-white font-medium text-xs leading-tight uppercase rounded  hover:bg-yellow-600  focus:bg-yellow-700  transition duration-150 ease-in-out">Subscribe</button>
                 </div>
               </div>
             </form>

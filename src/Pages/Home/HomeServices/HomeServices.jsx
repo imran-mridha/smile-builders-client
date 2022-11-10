@@ -15,7 +15,7 @@ const HomeServices = () => {
 
 
   return (
-    <div className='mx-4 md:mx-0 my-20'>
+    <div className='my-20'>
       <div className='mb-10 text-center'>
         <h2 className='text-2xl md:text-3xl lg:text-4xl uppercase font-semibold text-gray-600'>featured services</h2>
         <hr className='w-1/6 mx-auto mt-3 border-2 border-yellow-400' />

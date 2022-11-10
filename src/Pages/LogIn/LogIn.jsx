@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { toast } from 'react-toastify';
-import { setAuthToken } from '../../api/auth';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';

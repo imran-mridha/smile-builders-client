@@ -4,7 +4,6 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
 import useTitle from '../../hooks/useTitle';
-import { setAuthToken } from '../../api/auth';
 
 const Register = () => {
   useTitle('Register');

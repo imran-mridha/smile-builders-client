@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {Link, useLocation, useNavigate} from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { toast } from 'react-toastify';
 import { setAuthToken } from '../../api/auth';
@@ -14,23 +14,37 @@ const LogIn = () => {
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  const {logInUser} = useContext(AuthContext)
-  const handleLogin =(e)=>{
+  const { logInUser } = useContext(AuthContext)
+  const handleLogin = (e) => {
 
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    logInUser(email,password)
-    .then(result => {
-      const user = result.user;
-      console.log(user);
-      setAuthToken(user)
-      toast.success('login Success!!!', {autoClose: 500})
-      navigate(from, { replace: true });
-    })
-    .catch(err => toast.error(err.message, {autoClose: 500}))
+    logInUser(email, password)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        const currentUser = {
+          email: user.email
+        }
+
+        fetch('https://smile-builders-server.vercel.app/jwt', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+          .then(res => res.json())
+          .then(data => {
+            localStorage.setItem('smile-token', data.token);
+            toast.success('login Success!!!', { autoClose: 500 })
+            navigate(from, { replace: true });
+          })
+      })
+      .catch(err => toast.error(err.message, { autoClose: 500 }))
   }
   return (
     <div className='flex justify-center my-20'>
@@ -39,7 +53,7 @@ const LogIn = () => {
           <h3 className="mb-4 text-3xl text-gray-600 font-semibold border-b-2 border-yellow-400 w-24 pb-2 sm:mb-6">
             Sign In
           </h3>
-          <form onSubmit={handleLogin} className="">      
+          <form onSubmit={handleLogin} className="">
             <div className="mb-1 sm:mb-2">
               <label
                 htmlFor="email"

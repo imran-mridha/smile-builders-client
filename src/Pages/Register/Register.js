@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
@@ -9,8 +9,8 @@ import { setAuthToken } from '../../api/auth';
 const Register = () => {
   useTitle('Register');
   const navigate = useNavigate()
-  const {createUser,updateUserProfile,setLoading} = useContext(AuthContext)
-  const handleRegister =(e)=>{
+  const { createUser, updateUserProfile, setLoading } = useContext(AuthContext)
+  const handleRegister = (e) => {
 
     e.preventDefault();
     const form = e.target;
@@ -19,16 +19,30 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const password = form.password.value;
 
-    createUser(email,password)
-    .then(result => {
-      const user = result.user;
-      console.log(user);
-      setAuthToken(user)
-      toast.success('Registration Success!!', {autoClose: 500});
-      handleUpdateUserProfile(fullName, photoURL);
-      navigate('/login')
-    })
-    .catch(err => console.error(err))
+    createUser(email, password)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        const currentUser = {
+          email: user.email
+        }
+
+        fetch('https://smile-builders-server.vercel.app/jwt', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+          .then(res => res.json())
+          .then(data => {
+            localStorage.setItem('smile-token', data.token);
+            toast.success('Registration Success!!', { autoClose: 500 });
+            handleUpdateUserProfile(fullName, photoURL);
+            navigate('/login')
+          })
+      })
+      .catch(err => console.error(err))
   }
 
   const handleUpdateUserProfile = (fullName, photoURL) => {
@@ -50,7 +64,7 @@ const Register = () => {
     <div className='flex justify-center my-20'>
       <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
         <div className="bg-white border border-yellow-400 rounded shadow-2xl p-7 sm:p-10">
-        <h3 className="mb-4 text-3xl text-gray-600 font-semibold border-b-2 border-yellow-400 w-28 pb-2 sm:mb-6">
+          <h3 className="mb-4 text-3xl text-gray-600 font-semibold border-b-2 border-yellow-400 w-28 pb-2 sm:mb-6">
             Sign Up
           </h3>
           <form onSubmit={handleRegister}>

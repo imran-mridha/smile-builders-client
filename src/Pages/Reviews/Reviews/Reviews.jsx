@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom'
 import useTitle from '../../../hooks/useTitle';
-import { CirclesWithBar } from  'react-loader-spinner'
+import { CirclesWithBar } from 'react-loader-spinner'
 
 const Reviews = () => {
   useTitle('My Reviews')
@@ -14,16 +14,18 @@ const Reviews = () => {
   const [loading, setLoading] = useState(true)
   console.log(reviews);
   useEffect(() => {
+    if (!user?.email) {
+      return;
+    }
     fetch(`https://smile-builders-server.vercel.app/reviews?email=${user?.email}`, {
       headers: {
         authorization: `Bearer, ${localStorage.getItem('smile-token')}`
       }
     })
       .then(res => {
-        console.log(res.stutus);
-        if (res.status === 401 || res.status === 403) {
-          return logOut()
-        }
+        // if (res.status === 401 || res.status === 403) {
+        //   return logOut()
+        // }
         return res.json();
 
       })

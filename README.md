@@ -1,6 +1,6 @@
 # Smile Builders (Dentist Services) APP
 
-## Smile Builders Server side code [Smile Builders](https://github.com/imran-mridha/smile-builders-server)
+## Smile Builders Server side code [Server Repo](https://github.com/imran-mridha/smile-builders-server)
 
 ## Live Link
 

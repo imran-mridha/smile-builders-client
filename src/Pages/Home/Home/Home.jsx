@@ -1,6 +1,7 @@
 import React from 'react';
 import useTitle from '../../../hooks/useTitle';
 import About from '../About/About';
+import ChooseUs from '../ChooseUs/ChooseUs';
 import Hero from '../Hero/Hero';
 import HomeBlog from '../HomeBlog/HomeBlog';
 import HomeReview from '../HomeReview/HomeReview/HomeReview';
@@ -17,8 +18,9 @@ const Home = () => {
         <About />
         <HomeServices />
         <HomeReview />
-        <Status />
+        <ChooseUs />
         <HomeBlog />
+        <Status />
         <Newslatter />
       </div>
     </div>
